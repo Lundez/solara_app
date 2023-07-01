@@ -48,8 +48,5 @@ def DFViews(df: pl.DataFrame):
     filter_values = solara.reactive(FilterValues((df["Carb. (g)"].min(), df["Carb. (g)"].max()), (df["Sodium"].min(), df["Sodium"].max())))
     Filters(df, filter_values)
     with solara.Columns():
-        with solara.Column():
-            DFVis(df)
-            
-        with solara.Column():
-            FilteredPage(df, filter_values)
+        DFVis(df)
+        FilteredPage(df, filter_values)
